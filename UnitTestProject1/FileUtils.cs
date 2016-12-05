@@ -59,7 +59,7 @@ namespace LN.PM.FirmManager.UIAutomation.Specs.Utilities
                     oFile.Write(readBuffer, 0, size);
                     size = dataStream.Read(readBuffer, 0, readBuffer.Length);
                 }
-                oFile.Flush();                
+                oFile.Flush();
                 oFile.Close();
                 dataStream.Close();
                 res.Close();
@@ -116,46 +116,14 @@ namespace LN.PM.FirmManager.UIAutomation.Specs.Utilities
             foreach (var cook in driver.Manage().Cookies.AllCookies)
             {
                 var nc = new System.Net.Cookie(cook.Name, cook.Value, "/", cook.Domain);
-                //Console.WriteLine("Cookie is " + cook.Name + " with value " + cook.Value);
                 cookie.Add(nc);
             }
 
             return cookie;
         }
-        
-        public static int FileCompare(string fileA, string fileB)
-        {
-            Log.Information("File Compare of " + fileA + " and " + fileB);
-            var retVal = 0;
-            var origFileBytes = File.ReadAllBytes(fileA);
-            var downLdFileBytes = File.ReadAllBytes(fileB);
-            if (origFileBytes.Length != downLdFileBytes.Length)
-            {
-                Log.Error("FileA file size (" + downLdFileBytes.Length + ") is not the same as the FileB file (" + origFileBytes.Length + ")");
-                retVal++;
-            }
-            else
-            {
-                Log.Debug("Comparing files");
-                int diffsSeen = 0;
-                for (long i = 0; i < downLdFileBytes.Length; i++)
-                {
-                    if (origFileBytes[i] != downLdFileBytes[i])
-                    {
-                        Log.Error("File A file is different from the File B at byte " + i);
-                        retVal++;
-                        if (++diffsSeen > 10)
-                        {
-                            Log.Error("Giving up comparing files, too many differences");
-                            break;
-                        }
-                    }
-                }
-            }
-            Log.Information("done  FileCompare - returning " + retVal);
-            return retVal;
-        }
 
-       
+
+
+
     }
 }
