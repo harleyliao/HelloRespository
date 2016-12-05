@@ -1,4 +1,5 @@
-﻿using FluentAutomation.Interfaces;
+﻿using AnimalDownload;
+using FluentAutomation.Interfaces;
 using OpenQA.Selenium;
 using Serilog;
 using System;
@@ -7,7 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 
-namespace LN.PM.FirmManager.UIAutomation.Specs.Utilities
+namespace AnimalDownload
 {
     public static class FileUtils
     {

@@ -95,6 +95,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ActionSyntaxProviderExtension.cs" />
     <Compile Include="FileUtils.cs" />
     <Compile Include="RandomDataGenerator.cs" />
     <Compile Include="UnitTest1.cs" />
