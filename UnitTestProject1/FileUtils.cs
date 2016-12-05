@@ -59,8 +59,7 @@ namespace LN.PM.FirmManager.UIAutomation.Specs.Utilities
                     oFile.Write(readBuffer, 0, size);
                     size = dataStream.Read(readBuffer, 0, readBuffer.Length);
                 }
-                oFile.Flush();
-                //dataStream.CopyTo(oFile);                
+                oFile.Flush();                
                 oFile.Close();
                 dataStream.Close();
                 res.Close();
